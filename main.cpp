@@ -11,26 +11,26 @@ namespace sortlib {
 	void mergeSort() {
 
 	}
-    template <typename Type>
+    	template <typename Type>
 	void insertionSort() {
 
 	}
-    template<typename Type>
+    	template<typename Type>
 	void quickSort() {
 
 	}
-    template<typename Type>
+   	 template<typename Type>
 	void bubbleSort() {
 
 	}
 	template<typename Type>
-    void selectionSort(){
+	void selectionSort(){
 
-    }
-    template<typename Type>
-    void shellSort(){
+	}
+	template<typename Type>
+	void shellSort(){
 
-    }
+	}
 }
 int main() {
 
