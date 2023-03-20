@@ -3,9 +3,27 @@ using namespace std;
 
 namespace sort {
     template<typename Type>
-    void countSort() {
-
-    }
+    void countSort(Type array[], int sz) {
+		Type result[50000] = { 0 }; // to store the resulted array
+		// get the max element in the original array
+		Type mx = array[0];
+		for (int i = 1; i < sz; i++) {
+			if (mx < array[i]) mx = array[i];
+		}
+		Type cum[50000] = { 0 };
+		for (int i = 0; i < sz; i++) {
+			cum[array[i]]++;
+		}
+		for (int i = 1; i <= mx; i++) {
+			cum[i] += cum[i - 1];
+		}
+		for (int i = sz - 1; i >= 0; i--) {
+			result[--cum[array[i]]] = array[i];
+		}
+		for (int i = 0; i < sz; i++) {
+			cout << result[i] << endl;
+		}
+	}
 //============================================================================
     template<typename Type>
     void mergeSort() {
