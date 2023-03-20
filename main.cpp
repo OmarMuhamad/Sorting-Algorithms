@@ -147,24 +147,57 @@ namespace sort {
 
     }
 }
+     template<typename Type>
+     void printArray(Type array[], int sz){
+        for (int i = 0; i < sz; i++){
+            cout << array[i] << " ";
+        }
+     }
+    template<typename Type>
+    void generateRandomArray(int sz){
+        Type array[sz];
+        for(int i = 0; i < sz; i++) array[i] = rand()%100;
+        cout << "Elements before sorting: \n";
+        printArray(array, sz);
+        cout << endl;
+        int choice;
+        cout << "What sort you want to use: "
+        "\n1 - Count Sort\n2 - Merge Sort\n3 - Insertion Sort\n4 - Bubble Sort\n5 - Selection Sort\n6 - Quick Sort\n7 - Shell Sort";
+        cin >> choice;
+        switch(choice){
+        case 1 :{
+
+        }
+        case 2 :{
+
+        }
+
+        case 3 :{
+
+        }
+
+        case 4 :{
+
+        }
+
+        case 5 :{
+
+        }
+
+        case 6 :{
+
+        }
+
+        default :{
+
+        }
+
+        }
+    }
+}
 //================================================================
 using namespace sort;
 //================================================================
-void print(int arr[] , int n)
-{
-    for(int i=0; i<n;i++)
-        std:: cout <<arr[i]<<" ";
-    std:: cout<<endl;
-}
-//================================================================
 int main() {
-    int arr[] ={60,40,50,30,10,20};
-    int n = sizeof(arr)/sizeof(arr[0]);
-//    bubbleSort(arr,n);
-//    insertionSort(arr,n);
-    quickSort(arr,0,n);
-//    cout<<"Array After Bubble Sort : \n";
-//    cout  <<"Array After Insertion Sort : \n";
-    cout<<"Array After Quick Sort : \n";
-    print(arr,n);
+    
 }
