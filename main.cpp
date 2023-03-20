@@ -25,10 +25,51 @@ namespace sort {
 		}
 	}
 //============================================================================
-    template<typename Type>
-    void mergeSort() {
+    	template<typename Type>
+	void mergeOperation(Type array[], int low, int mid, int high) {
+	    int sz1 = mid - low + 1, sz2 = high - mid;
+	    Type L[sz1];
+        Type R[sz2];
+        for (int i = 0; i < sz1; i++){
+            L[i] = array[low + i];
+        }
+        for (int i = 0; i < sz2; i++){
+            R[i] = array[mid + i + 1];
+        }
+	    int i, j, k;
+	    i = j = 0; k = low;
+	    while(i < sz1 and j < sz2){
+            if (L[i] < R[j]){
+                array[k] = L[i];
+                i++;
+            }
+            else {
+                array[k] = R[j];
+                j++;
+            }
+            k++;
+	    }
+	    while(i < sz1){
+            array[k] = L[i];
+            k++; i++;
+	    }
+	    while(j < sz2){
+            array[k] = R[j];
+            k++; j++;
+	    }
 
-    }
+	}
+	//___________________________________________________________
+	template<typename Type>
+	void mergeSort(Type array[], int left, int right) {
+        if (left < right){
+            int mid = left + (right - left) / 2;
+            mergeSort(array, left, mid);
+            mergeSort(array, mid + 1, right);
+            mergeOperation(array, left, mid, right);
+        }
+        return;
+	}
 //============================================================================
     template<typename Type>
     void insertionSort(Type arr[], int n) {
