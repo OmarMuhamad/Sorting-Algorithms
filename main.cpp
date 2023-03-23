@@ -4,20 +4,19 @@ using namespace std;
 using namespace std::chrono;
 
 namespace sortlib {
-    template<typename Type>
-    void countSort(Type array[], int sz) {
+    void countSort(int array[], int sz) {
         /*
         Best case O(N + M)
         Average Case O(N + M)
         Worst Case O(N + M)
         */
-        Type result[sz] = { 0 }; // to store the resulted array
+        int result[sz] = { 0 }; // to store the resulted array
         // get the max element in the original array
-        Type mx = array[0];
+        int mx = array[0];
         for (int i = 1; i < sz; i++) {
             if (mx < array[i]) mx = array[i];
         }
-        Type cum[mx + 1] = { 0 };
+        int cum[mx + 1] = { 0 };
 
         for (int i = 0; i < sz; i++) { // store count of each item
             ++cum[array[i]];
@@ -121,7 +120,7 @@ namespace sortlib {
             switch (choice) {
                 case 1: {
                     for (int i = 0; i < 7; i++){
-                        Type array[input[i]];
+                        int array[input[i]];
                         generateRandom(array, input[i]);
                         auto start = high_resolution_clock::now();
                         countSort(array, input[i]); // sorting using count sort
