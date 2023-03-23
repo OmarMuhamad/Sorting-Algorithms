@@ -6,8 +6,7 @@ using namespace std::chrono;
 
 namespace sort
 {
-    template <typename Type>
-    void countSort(Type array[], int sz)
+    void countSort(int array[], int sz)
     {
         /*
         Best case O(N + M)
