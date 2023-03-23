@@ -78,15 +78,17 @@ namespace sortlib {
         return;
     }
     template <typename Type>
-    void insertionSort(Type array[], int sz) {
+    void insertionSort() {
         
     }
     template<typename Type>
-    void bubbleSort(Type array[], int sz) {
+    void bubbleSort() {
         
     }
-    void selectionSort() {
 
+    template<typename Type>
+    void selectionSort() {
+      
     }
     void quickSort() {
 
@@ -110,23 +112,22 @@ namespace sortlib {
     }
     template<typename Type>
     void generateRandomArray() {
-
         int choice;
         int input[7] = {200, 500, 1000, 5000, 10000, 20000, 50000};
         while(choice != 8){
             cout << "What sort you want to use: "
                 "\n1 - Count Sort\n2 - Merge Sort\n3 - Insertion Sort\n4 - Bubble Sort\n5 - Selection Sort\n6 - Quick Sort\n7 - Shell Sort\n8 - Exit the program\n";
             cin >> choice;
-            auto start = high_resolution_clock::now(); // start time
             switch (choice) {
                 case 1: {
                     for (int i = 0; i < 7; i++){
                         Type array[input[i]];
                         generateRandom(array, input[i]);
+                        auto start = high_resolution_clock::now();
                         countSort(array, input[i]); // sorting using count sort
                         auto stop = high_resolution_clock::now();
-                        auto duration = duration_cast<microseconds>(stop - start); // end time
-                        cout << "Time taken by function for: "<< input[i] << " is " << duration.count() << " microseconds\n" ;
+                        auto diff = (stop - start); // end time
+                        cout << "Time taken by function for: "<< input[i] << " is " << duration<float, milli>(diff).count() << " milliseconds\n" ;
                         //cout << endl;
                         //cout << "after sorting: ";
                         //printArray(array, sz); // after sorting
@@ -140,59 +141,48 @@ namespace sortlib {
                     for (int i = 0; i < 7; i++){
                         Type array[input[i]];
                         generateRandom(array, input[i]);
-                        mergeSort(array, 0, input[i] - 1);
+                        auto start = high_resolution_clock::now();
+                        mergeSort(array, 0, input[i] - 1); // sorting using count sort
                         auto stop = high_resolution_clock::now();
-                        auto duration = duration_cast<microseconds>(stop - start); // end time
-                        cout << "Time taken by function for: "<< input[i] << " is " << duration.count() << " microseconds\n" ;
-                        /*cout << endl;
-                        cout << "after sorting: ";
-                        printArray(array, input[i]); // after sorting
-                        cout << endl;*/
+                        auto diff = (stop - start); // end time
+                        cout << "Time taken by function for: "<< input[i] << " is " << duration<float, milli>(diff).count() << " milliseconds\n" ;
+                        //cout << endl;
+                        //cout << "after sorting: ";
+                        //printArray(array, sz); // after sorting
+                        //cout << endl;
 
                     }
                     break;
                 }
                 case 3: {
                     for (int i = 0; i < 7; i++){
-                        Type array[input[i]];
+                       Type array[input[i]];
                         generateRandom(array, input[i]);
-                        insertionSort(array, input[i]);
+                        auto start = high_resolution_clock::now();
+                        insertionSort(array, input[i]); // sorting using count sort
                         auto stop = high_resolution_clock::now();
-                        auto duration = duration_cast<microseconds>(stop - start); // end time
-                        cout << "Time taken by function for: "<< input[i] << " is " << duration.count() << " microseconds\n" ;
-                        /*cout << endl;
-                        cout << "after sorting: ";
-                        printArray(array, input[i]); // after sorting
-                        cout << endl;*/
+                        auto diff = (stop - start); // end time
+                        cout << "Time taken by function for: "<< input[i] << " is " << duration<float, milli>(diff).count() << " milliseconds\n" ;
+                        //cout << endl;
+                        //cout << "after sorting: ";
+                        //printArray(array, sz); // after sorting
+                        //cout << endl;
 
                     }
                     break;
                 }
                 case 4: {
-                    for (int i = 0; i < 7; i++){
-                        Type array[input[i]];
-                        generateRandom(array, input[i]);
-                        bubbleSort(array, input[i]);
-                        auto stop = high_resolution_clock::now();
-                        auto duration = duration_cast<microseconds>(stop - start); // end time
-                        cout << "Time taken by function for: "<< input[i] << " is " << duration.count() << " microseconds\n" ;
-                        /*cout << endl;
-                        cout << "after sorting: ";
-                        printArray(array, input[i]); // after sorting
-                        cout << endl;*/
-
-                    }
-                    break;
+                    
                 }
-//                case 5: {
-//
-//                }
-//                case 6: {
-//
-//                }
-//                default: {
-//
-//                }
+                case 5: {
+                    
+                }
+                case 6: {
+
+                }
+                default: {
+
+                }
             }
 
         }
@@ -201,7 +191,6 @@ namespace sortlib {
 int main() {
     {
         using namespace sortlib;
-
         sortlib::generateRandomArray<int>();
 
     }
