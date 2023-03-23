@@ -155,21 +155,7 @@ namespace sortlib {
                     break;
                 }
                 case 3: {
-                    for (int i = 0; i < 7; i++){
-                       Type array[input[i]];
-                        generateRandom(array, input[i]);
-                        auto start = high_resolution_clock::now();
-                        insertionSort(array, input[i]); // sorting using count sort
-                        auto stop = high_resolution_clock::now();
-                        auto diff = (stop - start); // end time
-                        cout << "Time taken by function for: "<< input[i] << " is " << duration<float, milli>(diff).count() << " milliseconds\n" ;
-                        //cout << endl;
-                        //cout << "after sorting: ";
-                        //printArray(array, sz); // after sorting
-                        //cout << endl;
-
-                    }
-                    break;
+                    
                 }
                 case 4: {
                     
